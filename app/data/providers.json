@@ -1,0 +1,63 @@
+[
+    {
+        "id": "PROV-001",
+        "name": "Dr. Sarah Chen",
+        "specialty": "cardiology",
+        "location": "Downtown Medical Center",
+        "languages": ["en", "zh"],
+        "accepting_new_patients": true,
+        "available_slots": [
+            {"date": "2025-12-22", "time": "09:00", "slot_type": "in_person"},
+            {"date": "2025-12-22", "time": "14:30", "slot_type": "in_person"},
+            {"date": "2025-12-23", "time": "10:00", "slot_type": "telehealth"}
+        ]
+    },
+    {
+        "id": "PROV-002",
+        "name": "Dr. Michael Rodriguez",
+        "specialty": "cardiology",
+        "location": "North Clinic",
+        "languages": ["en", "es"],
+        "accepting_new_patients": true,
+        "available_slots": [
+            {"date": "2025-12-22", "time": "11:00", "slot_type": "in_person"},
+            {"date": "2025-12-24", "time": "09:30", "slot_type": "in_person"}
+        ]
+    },
+    {
+        "id": "PROV-003",
+        "name": "Dr. Emily Watson",
+        "specialty": "general_practice",
+        "location": "Community Health Center",
+        "languages": ["en"],
+        "accepting_new_patients": true,
+        "available_slots": [
+            {"date": "2025-12-21", "time": "15:00", "slot_type": "in_person"},
+            {"date": "2025-12-21", "time": "16:00", "slot_type": "telehealth"},
+            {"date": "2025-12-22", "time": "09:00", "slot_type": "in_person"}
+        ]
+    },
+    {
+        "id": "PROV-004",
+        "name": "Dr. James Park",
+        "specialty": "pulmonology",
+        "location": "Downtown Medical Center",
+        "languages": ["en", "ko"],
+        "accepting_new_patients": true,
+        "available_slots": [
+            {"date": "2025-12-23", "time": "10:00", "slot_type": "in_person"},
+            {"date": "2025-12-23", "time": "14:00", "slot_type": "telehealth"}
+        ]
+    },
+    {
+        "id": "PROV-005",
+        "name": "Dr. Maria Santos",
+        "specialty": "emergency_medicine",
+        "location": "City Hospital ER",
+        "languages": ["en", "es", "pt"],
+        "accepting_new_patients": true,
+        "available_slots": [
+            {"date": "2025-12-21", "time": "NOW", "slot_type": "in_person"}
+        ]
+    }
+]
