@@ -44,7 +44,7 @@ def main():
                 print(f"Care Type: {result.triage.recommended_care_type}")
             
             if result.routing and result.routing.recommended_provider:
-                print(f"\nRecommended Provider: {result.routing.recommended_provider.get('name', 'N/A')}")
+                print(f"\nRecommended Provider: {result.routing.recommended_provider.name}")
             
             if result.requires_human_review:
                 print(f"\n⚠️  REQUIRES HUMAN REVIEW")

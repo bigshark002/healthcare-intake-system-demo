@@ -1,8 +1,13 @@
 """Routing agent - Matches patient with appropriate provider."""
 
 import json
-from strands import tool
-from aws_lambda_powertools import Logger, Tracer
+
+try:
+    from strands import tool
+    from aws_lambda_powertools import Logger, Tracer
+except ImportError:
+    # Mock for local development
+    from app.mock_dependencies import tool, MockLogger as Logger, MockTracer as Tracer
 
 from app.models import RoutingInput, RoutingOutput
 from app.agents.prompts import ROUTING_AGENT_PROMPT

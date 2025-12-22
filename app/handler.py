@@ -1,8 +1,16 @@
 """AWS Lambda handler for the healthcare multi-agent system."""
 
 import json
-from aws_lambda_powertools.utilities.typing import LambdaContext
-from aws_lambda_powertools.logging import correlation_paths
+
+try:
+    from aws_lambda_powertools.utilities.typing import LambdaContext
+    from aws_lambda_powertools.logging import correlation_paths
+except ImportError:
+    # Mock for local development
+    from app.mock_dependencies import LambdaContext
+    
+    class correlation_paths:
+        API_GATEWAY_HTTP = "requestContext.requestId"
 
 from app.agents.orchestrator import HealthcareOrchestrator
 from app.observability import logger, tracer, metrics

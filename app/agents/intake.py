@@ -1,8 +1,13 @@
 """Intake agent - Extracts patient information from raw input."""
 
 import json
-from strands import tool
-from aws_lambda_powertools import Logger, Tracer
+
+try:
+    from strands import tool
+    from aws_lambda_powertools import Logger, Tracer
+except ImportError:
+    # Mock for local development
+    from app.mock_dependencies import tool, MockLogger as Logger, MockTracer as Tracer
 
 from app.models import IntakeInput, IntakeOutput, Patient, Symptom
 from app.agents.prompts import INTAKE_AGENT_PROMPT

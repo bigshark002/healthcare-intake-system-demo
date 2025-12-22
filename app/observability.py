@@ -1,7 +1,16 @@
 """Centralized observability setup using AWS Lambda Powertools."""
 
-from aws_lambda_powertools import Logger, Tracer, Metrics
-from aws_lambda_powertools.metrics import MetricUnit
+try:
+    from aws_lambda_powertools import Logger, Tracer, Metrics
+    from aws_lambda_powertools.metrics import MetricUnit
+except ImportError:
+    # Mock for local development
+    from app.mock_dependencies import MockLogger as Logger, MockTracer as Tracer, MockMetrics as Metrics
+    
+    class MetricUnit:
+        Milliseconds = "Milliseconds"
+        Count = "Count"
+        NoUnit = "None"
 
 # Initialize Powertools
 logger = Logger(service="healthcare-mas")

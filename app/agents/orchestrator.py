@@ -4,8 +4,17 @@ import json
 import time
 import uuid
 from pathlib import Path
-from strands import Agent
-from aws_lambda_powertools import Logger, Tracer
+
+try:
+    from strands import Agent
+    from aws_lambda_powertools import Logger, Tracer
+except ImportError:
+    # Mock for local development
+    from app.mock_dependencies import MockLogger as Logger, MockTracer as Tracer
+    
+    class Agent:
+        def __init__(self, **kwargs):
+            pass
 
 from app.config import settings
 from app.models import (
