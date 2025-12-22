@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+
+# CDK
+node_modules/
+cdk.out/
+*.js
+*.d.ts
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+
+# Project guides (private)
+healthcare-mas-guide.md
+CLAUDE.md
