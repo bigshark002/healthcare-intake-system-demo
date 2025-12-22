@@ -1,5 +1,13 @@
 # Healthcare Multi-Agent System (MAS)
 
+[![Python](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![AWS](https://img.shields.io/badge/AWS-Bedrock-orange.svg)](https://aws.amazon.com/bedrock/)
+[![AWS CDK](https://img.shields.io/badge/AWS-CDK-yellow.svg)](https://aws.amazon.com/cdk/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
+[![Pydantic](https://img.shields.io/badge/Pydantic-V2-green.svg)](https://docs.pydantic.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 A production-ready multi-agent AI system for healthcare intake coordination, built with AWS Strands Agents SDK.
 
 ## 🎯 Overview
@@ -56,6 +64,54 @@ Uses the "Agents-as-Tools" pattern from Strands SDK 1.0:
 | Validation | Pydantic v2 | Type safety, clear contracts |
 | Observability | Lambda Powertools | Structured logging, metrics, tracing |
 | Infrastructure | AWS CDK (TypeScript) | IaC, reproducible deployments |
+
+## 🎬 Demo
+
+### Live Interaction Example
+
+```
+$ python -m app.local_runner
+🏥 Healthcare Multi-Agent System - Local Runner
+Using Bedrock: ✅ (Claude Sonnet)
+
+> Patient: I'm Maria, 34 years old. I've had severe abdominal pain 
+  for 6 hours, nausea, and fever of 101.2°F
+
+🔄 Processing with 3 agents...
+├─ 💬 Intake Agent: Extracting patient information...
+├─ 🏥 Triage Agent: Assessing urgency and specialty...
+└─ 🔄 Routing Agent: Finding best provider match...
+
+✅ Case processed in 1.2s
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 CASE SUMMARY: CASE-B8F4A3D2
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+👤 Patient: Maria, 34 years old
+🚨 Urgency: Level 2/5 (High Priority)
+🏥 Specialty: Emergency Medicine → Gastroenterology
+⚡ Care Type: urgent
+💰 Est. Cost: $0.0087
+
+🩺 Recommended Provider:
+   Dr. Jennifer Martinez, MD
+   Emergency Medicine
+   Available: 15 minutes
+
+⚠️  REQUIRES HUMAN REVIEW
+   Reasons: High urgency (Level 2), Red flags: abdominal pain, fever
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+### Key Features Demonstrated
+
+- **🧠 Multi-Agent Intelligence**: 3 specialized agents working in sequence
+- **⚡ Real-time Processing**: Claude Sonnet via AWS Bedrock
+- **🛡️ Safety-First**: Automatic human review triggers for critical cases
+- **📊 Structured Output**: JSON contracts between all agents
+- **🔄 Graceful Fallback**: Rule-based logic when LLM unavailable
 
 ## 🚀 Getting Started
 
