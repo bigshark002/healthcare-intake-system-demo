@@ -176,8 +176,33 @@ class HealthcareOrchestrator:
         try:
             logger.info("Running intake agent")
             
-            # Smart placeholder - simulate LLM response based on input
-            intake_result = self._simulate_intake(raw_input)
+            # Try real Bedrock first, fallback to simulation
+            intake_result = None
+            use_bedrock = settings.enable_bedrock if hasattr(settings, 'enable_bedrock') else False
+            
+            if use_bedrock:
+                try:
+                    from app.bedrock_client import get_bedrock_client
+                    client = get_bedrock_client()
+                    
+                    # Call Bedrock with intake prompt
+                    response = client.invoke_claude(
+                        prompt=raw_input,
+                        system_prompt=INTAKE_AGENT_PROMPT
+                    )
+                    
+                    # Parse the response
+                    from app.agents.intake import parse_intake_response
+                    intake_result = parse_intake_response(response)
+                    logger.info("Intake completed with Bedrock")
+                    
+                except Exception as e:
+                    logger.warning(f"Bedrock intake failed, using simulation: {e}")
+                    intake_result = None
+            
+            # Fallback to simulation
+            if intake_result is None:
+                intake_result = self._simulate_intake(raw_input)
             
             duration_ms = (time.perf_counter() - start) * 1000
             
@@ -211,8 +236,36 @@ class HealthcareOrchestrator:
         try:
             logger.info("Running triage agent")
             
-            # Smart simulation instead of LLM call
-            triage_result = self._simulate_triage(intake)
+            # Try real Bedrock first
+            triage_result = None
+            use_bedrock = settings.enable_bedrock if hasattr(settings, 'enable_bedrock') else False
+            
+            if use_bedrock:
+                try:
+                    from app.bedrock_client import get_bedrock_client
+                    client = get_bedrock_client()
+                    
+                    # Convert intake to dict for the prompt
+                    intake_data = intake.model_dump()
+                    
+                    # Call Bedrock with triage prompt
+                    response = client.invoke_claude(
+                        prompt=json.dumps(intake_data),
+                        system_prompt=TRIAGE_AGENT_PROMPT
+                    )
+                    
+                    # Parse the response
+                    from app.agents.triage import parse_triage_response
+                    triage_result = parse_triage_response(response)
+                    logger.info("Triage completed with Bedrock")
+                    
+                except Exception as e:
+                    logger.warning(f"Bedrock triage failed, using simulation: {e}")
+                    triage_result = None
+            
+            # Fallback to simulation
+            if triage_result is None:
+                triage_result = self._simulate_triage(intake)
             
             duration_ms = (time.perf_counter() - start) * 1000
             

@@ -11,7 +11,8 @@ class Settings(BaseSettings):
     aws_region: str = "us-east-1"
     
     # Bedrock
-    bedrock_model_id: str = "us.anthropic.claude-sonnet-4-20250514-v1:0"
+    bedrock_model_id: str = "claude-model-placeholder"  # Configure via environment
+    enable_bedrock: bool = False  # Set to True to use real Bedrock
     
     # Agent behavior
     confidence_threshold: float = 0.70
