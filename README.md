@@ -1,14 +1,4 @@
-# Healthcare Multi-Agent System (MAS)
-
-[![Python](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
-[![AWS](https://img.shields.io/badge/AWS-Bedrock-orange.svg)](https://aws.amazon.com/bedrock/)
-[![AWS CDK](https://img.shields.io/badge/AWS-CDK-yellow.svg)](https://aws.amazon.com/cdk/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
-[![Pydantic](https://img.shields.io/badge/Pydantic-V2-green.svg)](https://docs.pydantic.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-
-A production-ready multi-agent AI system for healthcare intake coordination, built with AWS Strands Agents SDK.
+# Healthcare Intake System Demo (Multi-Agent)
 
 ## 🎯 Overview
 
@@ -134,8 +124,8 @@ Using Bedrock: ✅ (Claude Sonnet)
 
 ```bash
 # Clone repository
-git clone https://github.com/YOUR_USERNAME/healthcare-intake-coordination-system.git
-cd healthcare-intake-coordination-system
+git clone git@github.com:bigshark002/healthcare-intake-system-demo.git
+cd healthcare-intake-system-demo
 
 # Setup Python environment
 python -m venv .venv
@@ -194,8 +184,6 @@ The system includes a comprehensive dashboard monitoring:
 - Error rates
 - Estimated costs
 
-![Dashboard Preview](docs/dashboard-preview.png)
-
 ### Alarms
 
 | Alarm | Threshold | Action |
@@ -246,18 +234,10 @@ The system includes a comprehensive dashboard monitoring:
 
 **Solution**: Conservative estimation based on average prompt/response sizes.
 
-## 🔮 Future Improvements
-
-- [ ] Session persistence for multi-turn conversations
-- [ ] Real EHR integration (FHIR)
-- [ ] A/B testing for prompt optimization
-- [ ] Multi-language support improvements
-- [ ] Async processing for high volume
-
 ## 📁 Project Structure
 
 ```
-healthcare-intake-coordination-system/
+healthcare-intake-system-demo/
 ├── app/                 # Python application
 │   ├── agents/          # Strands agents
 │   ├── models/          # Pydantic contracts
@@ -306,15 +286,3 @@ Response:
   "requires_human_review": false
 }
 ```
-
-## 📝 License
-
-MIT
-
-## 👤 Author
-
-Abel - Healthcare Multi-Agent System
-
----
-
-Built with ❤️ for improving healthcare accessibility through intelligent automation.
